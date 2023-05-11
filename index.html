@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>nkpl</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+<div id="main">
+    <div class="sidebar"></div>
+
+    <div class="chat-input">
+        <div></div>
+        <label>
+            <input type="text" placeholder="Написать в #основной">
+        </label>
+    </div>
+
+    <div class="sidebar-left">
+        <div class="nickname">
+            <span id="nickname"></span>
+            <div class="popup" id="popup">
+                <label>
+                    <input type="text" placeholder="Ник">
+                    <button id="save-button">Сохранить</button>
+                </label>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
