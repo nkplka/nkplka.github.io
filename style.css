@@ -1,6 +1,7 @@
 body {
     font-family: 'Poppins Thin', sans-serif;
     background-color: #313338;
+    margin: 0;
 }
 
 .sidebar {
@@ -11,19 +12,22 @@ body {
     right: 0;
     bottom: 0;
     box-sizing: border-box;
+    z-index: 2; /* add z-index to fix overlapping issue */
 }
 
 .chat-input {
     position: fixed;
     bottom: 20px;
     right: 260px;
-    width: 1330px;
+    width: calc(100% - 260px); /* use calc to make it responsive */
+    max-width: 1330px;
     height: 50px;
     background-color: #383a40;
     color: white;
     padding: 10px;
     box-sizing: border-box;
     border-radius: 10px;
+    z-index: 2; /* add z-index to fix overlapping issue */
 }
 
 .chat-input input {
@@ -47,8 +51,6 @@ body {
     padding: 20px;
     box-sizing: border-box;
 }
-
-
 
 .nickname {
     width: 240px;
@@ -81,7 +83,7 @@ body {
     padding: 10px;
     color: white;
     font-size: 16px;
-    z-index: 1;
+    z-index: 3; /* add z-index to fix overlapping issue */
 }
 
 .popup p {
@@ -89,14 +91,13 @@ body {
 }
 
 .popup input {
-    width:98%;
+    width: 98%;
     height: 50%;
     border: none;
     background-color: #3d3e45;
     color: white;
     font-size: 18px;
     outline: none;
-
 }
 
 #save-button {
@@ -108,4 +109,3 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-

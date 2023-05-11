@@ -89,33 +89,55 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-const socket = new WebSocket('ws://localhost:63342');
+$(document).ready(function () {
+    var $input = $('.chat-input input');
+    var $chatMessages = $('#chatMessages');
 
-socket.addEventListener('open', () => {
-    console.log('Connected to server');
+    function addMessage(username, message) {
+        var date = new Date();
+        var hours = date.getHours().toString().padStart(2, '0');
+        var minutes = date.getMinutes().toString().padStart(2, '0');
+        var timestamp = hours + ':' + minutes;
 
-    const form = document.querySelector('form');
-    const input = document.querySelector('input[type="text"]');
+        var $message = $('<div>').addClass('message');
+        var $messageInfo = $('<div>').addClass('message-info');
+        var $messageUsername = $('<span>').addClass('message-username').text(username);
+        var $messageTimestamp = $('<span>').addClass('message-timestamp').text(timestamp);
+        var $messageText = $('<div>').addClass('message-text').text(message);
 
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
+        $messageInfo.append($messageUsername).append($messageTimestamp);
+        $message.append($messageInfo).append($messageText);
+        $chatMessages.append($message);
 
-        const message = input.value.trim();
+        $chatMessages.scrollTop($chatMessages.prop('scrollHeight'));
+    }
 
-        if (message) {
-            socket.send(message);
-            input.value = '';
+    $input.on('keydown', function (e) {
+        if (e.which === 13) {
+            var message = $input.val().trim();
+
+            if (message) {
+                addMessage($('#nickname').text(), message);
+                $input.val('');
+            }
         }
     });
+
+
+    var savedMessages = JSON.parse(localStorage.getItem('messages')) || [];
+    savedMessages.forEach(function (message) {
+        addMessage(message.username, message.text);
+    });
+
+
+    $(window).on('beforeunload', function () {
+        var messages = $('.message').get().map(function (message) {
+            return {
+                username: $(message).find('.message-username').text(),
+                text: $(message).find('.message-text').text()
+            };
+        });
+
+        localStorage.setItem('messages', JSON.stringify(messages));
+    });
 });
-
-socket.addEventListener('message', (event) => {
-    console.log(`Received message: ${event.data}`);
-});
-
-
-
-
-
-
-
