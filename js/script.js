@@ -94,6 +94,7 @@ $(function() {
 
     var inputMessage = $('#inputMessage');
     var chatMessages = $('#chatMessages');
+    var name = getUserCookie('username');
 
     inputMessage.keypress(function(event) {
         if (event.keyCode === 13) {
@@ -118,18 +119,6 @@ $(function() {
                     text: message
                 };
                 messages.push(newMessage);
-                var jsonString = JSON.stringify(messages);
-                $.ajax({
-                    type: "POST",
-                    url: "save_messages.php",
-                    data: {data: jsonString},
-                    success: function () {
-                        console.log("Messages saved successfully");
-                    },
-                    error: function () {
-                        console.log("Error saving messages");
-                    }
-                });
 
             }
         }

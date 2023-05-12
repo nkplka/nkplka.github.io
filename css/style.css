@@ -112,10 +112,11 @@ body {
 
 .messages-container {
     display: flex;
-    flex-direction: column;
-    height: calc(100% - 100px); /* установим высоту, вычтя высоту чата и поля ввода */
-    overflow-y: scroll; /* добавим прокрутку, если сообщений будет больше, чем может поместиться на экране */
+    flex-direction: column-reverse !important; /* добавляем !important, чтобы переопределить другие стили */
+    height: calc(100% - 100px);
+    overflow-y: scroll;
 }
+
 
 .message {
     align-self: flex-end; /* сообщения пользователя будут выравниваться по правому краю контейнера */
