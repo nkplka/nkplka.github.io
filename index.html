@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <title>nkpl</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/messages.js"></script>
+
 </head>
 
 <body>
@@ -19,17 +21,18 @@
     <div class="chat-messages" id="chatMessages">
         <div class="message">
             <div class="message-info">
-                <span class="message-username">Имя пользователя</span>
-                <span class="message-timestamp">10:00</span>
+                <span id="message-username">Имя пользователя</span>
+                <span id="message-timestamp">10:00</span>
             </div>
-            <div class="message-text">Текст сообщения</div>
+            <div id="message-text">Текст сообщения</div>
         </div>
     </div>
 
     <div class="chat-input">
         <div>
         <label>
-            <input type="text" placeholder="Написать в #основной">
+            <input type="text" id="inputMessage" placeholder="Написать в #основной" >
+
         </label>
     </div>
 
@@ -46,6 +49,6 @@
     </div>
 
 </div>
-
+</div>
 </body>
 </html>

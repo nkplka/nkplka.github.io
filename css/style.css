@@ -1,0 +1,136 @@
+body {
+    font-family: 'Poppins Thin', sans-serif;
+    background-color: #313338;
+    margin: 0;
+}
+
+.sidebar {
+    width: 240px;
+    background-color: #2b2d31;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    z-index: 2; /* add z-index to fix overlapping issue */
+}
+
+.chat-input {
+    position: fixed;
+    bottom: 20px;
+    right: 260px;
+    width: calc(100% - 260px); /* use calc to make it responsive */
+    max-width: 1330px;
+    height: 50px;
+    background-color: #383a40;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    z-index: 2; /* add z-index to fix overlapping issue */
+}
+
+.chat-input input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #383a40;
+    color: white;
+    font-size: 18px;
+    outline: none; /* убираем обводку при клике на инпут */
+}
+
+.sidebar-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 310px;
+    background-color: #2b2d31;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.nickname {
+    width: 240px;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 875px;
+}
+
+.nickname:hover {
+    background-color: #3d3e45;
+    border-radius: 10px;
+}
+
+.nickname span {
+    user-select: none;
+    position: fixed;
+    top: 910px;
+    left: 30px;
+}
+
+.popup {
+    position: absolute;
+    top: 750px;
+    left: 20px;
+    width: 220px;
+    height: 100px;
+    background-color: #3d3e45;
+    display: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+    z-index: 3; /* add z-index to fix overlapping issue */
+}
+
+.popup p {
+    margin: 0;
+}
+
+.popup input {
+    width: 98%;
+    height: 50%;
+    border: none;
+    background-color: #3d3e45;
+    color: white;
+    font-size: 18px;
+    outline: none;
+}
+
+#save-button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #2b2d31;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 100px); /* установим высоту, вычтя высоту чата и поля ввода */
+    overflow-y: scroll; /* добавим прокрутку, если сообщений будет больше, чем может поместиться на экране */
+}
+
+.message {
+    align-self: flex-end; /* сообщения пользователя будут выравниваться по правому краю контейнера */
+    margin: 5px 0; /* добавим небольшой отступ между сообщениями */
+    max-width: 80%; /* установим максимальную ширину сообщений, чтобы они не занимали слишком много места */
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #3d3e45;
+    color: white;
+    margin-left: 330px;
+    width: 1310px;
+}
+
+.message.from-other {
+    align-self: flex-start; /* сообщения других пользователей будут выравниваться по левому краю контейнера */
+    background-color: #383a40;
+}
+
