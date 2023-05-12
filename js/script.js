@@ -56,6 +56,7 @@ function setUserCookie(name, value) {
 
 var token = getUserCookie('token');
 var tag = getUserCookie('tag');
+var name = getUserCookie('username');
 
 if (!token || !tag) {
 
