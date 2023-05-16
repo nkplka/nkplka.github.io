@@ -95,7 +95,7 @@ $(function() {
 
     var inputMessage = $('#inputMessage');
     var chatMessages = $('#chatMessages');
-    var name = getUserCookie('username');
+    const name = getUserCookie('username');
 
     inputMessage.keypress(function(event) {
         if (event.keyCode === 13) {
