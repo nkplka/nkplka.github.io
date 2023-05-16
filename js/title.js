@@ -1,0 +1,35 @@
+var titles = [
+"//////////////////",
+"/////////////////n",
+"////////////////nk",
+"///////////////nkp",
+"//////////////nkpl",
+"/////////////nkpl.",
+"////////////nkpl.r",
+"///////////nkpl.ru",
+"//////////nkpl.ru/",
+"/////////nkpl.ru//",
+"////////nkpl.ru///",
+"///////nkpl.ru////",
+"//////nkpl.ru/////",
+"/////nkpl.ru//////",
+"////nkpl.ru///////",
+"///nkpl.ru////////",
+"//nkpl.ru/////////",
+"/nkpl.ru//////////",
+"nkpl.ru///////////",
+"kpl.ru////////////",
+"pl.ru/////////////",
+"l.ru//////////////",
+".ru///////////////",
+"ru////////////////",
+"u/////////////////",];
+var currentIndex = 0;
+
+function changePageTitle() {
+    document.title = titles[currentIndex];
+    currentIndex = (currentIndex + 1) % titles.length;
+}
+
+
+setInterval(changePageTitle, 75);
