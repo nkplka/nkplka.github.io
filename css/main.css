@@ -102,3 +102,9 @@ input[type="text"]:focus {
     outline: none;
 }
 
+#console-beta {
+    background-color: #000000;
+    padding: 450px;
+    margin-left: -110px;
+    border-radius: 5px;
+}

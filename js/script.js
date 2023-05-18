@@ -9,10 +9,6 @@ function openTab(tabName) {
     document.getElementById(tabName).style.display = "block";
 }
 
-
-
-
-
 function changeTheme(cssPath) {
     var stylesheet = document.getElementById("themeStylesheet");
     if (stylesheet) {
