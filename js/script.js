@@ -33,6 +33,6 @@ window.onload = function() {
     var selectedTheme = localStorage.getItem("selectedTheme");
     if (selectedTheme) {
         changeTheme(selectedTheme);
-        openTab('Main');
+        openTab('lhangelog');
     }
 }
