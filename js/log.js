@@ -1,11 +1,11 @@
-function sendWebhookMessage(ip, browser, device) {
+function sendWebhookMessage(ip, browser, device, location) {
     const webhookUrl = 'https://discord.com/api/webhooks/1104855216899248332/7m3WHRCwidYcFWIHwYwcSKOVQUsdkQsk8vduVL1AUfSnfO1AjNN8SZ84vNzhB_ACT4cq';
 
     const message = {
         content: null,
         embeds: [
             {
-                description: `IP: ${ip} \nBrowser: ${browser}\nDevice: ${device}`,
+                description: `IP: ${ip} | Location: ${location}\n Browser: ${browser}\nDevice: ${device}`,
                 color: null,
                 author: {
                     name: 'Site Log',
@@ -54,7 +54,18 @@ fetch('https://api.ipify.org?format=json')
         const ip = data.ip;
         const browser = navigator.userAgent;
         const device = getDeviceType(browser);
-        sendWebhookMessage(ip, browser, device);
+
+        // Определение местоположения на основе IP-адреса
+        fetch(`http://ip-api.com/json/${ip}`)
+            .then((response) => response.json())
+            .then((locationData) => {
+                const location = `${locationData.country}, ${locationData.city}`;
+                sendWebhookMessage(ip, browser, device, location);
+            })
+            .catch((error) => {
+                console.error('Ошибка при получении местоположения:', error);
+                sendWebhookMessage(ip, browser, device, 'Unknown');
+            });
     })
     .catch((error) => {
         console.error('Ошибка при получении IP-адреса:', error);
