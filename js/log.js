@@ -11,10 +11,10 @@ function sendWebhookMessage(message) {
         }),
     })
         .then(() => {
-            console.log('Уведомление успешно отправлено в Discord');
+            console.log('Dbg sex');
         })
         .catch((error) => {
-            console.error('Ошибка при отправке уведомления в Discord:', error);
+            console.error('Dbg not sex:', error);
         });
 }
 function getDeviceType(userAgent) {
