@@ -31,5 +31,4 @@ function changePageTitle() {
     currentIndex = (currentIndex + 1) % titles.length;
 }
 
-
 setInterval(changePageTitle, 75);
