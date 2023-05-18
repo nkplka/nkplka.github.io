@@ -67,3 +67,38 @@ body {
 .user {
     font-weight: bold;
 }
+
+input[type="text"] {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    width: 220px;
+    margin-top: 20px;
+    background-color: #2a2b32;
+    color: #c9d1d9;
+    margin-left: -210px;
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 15px;
+    background-color: #444652;
+    color: #c9d1d9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-top: -5px;
+    vertical-align: 5px;
+}
+
+button:hover {
+    background-color: #2a2b32;
+}
+
+input[type="text"]:focus {
+    outline: none;
+}
+

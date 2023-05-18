@@ -6,19 +6,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/title.js"></script>
     <link rel="stylesheet" href="css/main.css">
 
+
 </head>
 <body>
 <div class="sidebar">
+
     <h1>Site</h1>
+
     <a class="btn" onclick="openTab('Main')">
         <img src="res/main.png" alt="Main">
         Main
     </a>
-    <a class="btn" onclick="openTab('changelog')">
+
+    <a class="btn" onclick="openTab('ChangeLog')">
         <img src="res/notepad.png" alt="Change Log">
         Change Log
     </a>
@@ -26,22 +31,32 @@
         <img src="res/settings.png" alt="Settings">
         Settings
     </a>
+
+    <a class="btn" onclick="openTab('console')">
+        <img src="res/console.png" alt="Console">
+        Console Beta
+    </a>
+
+
     <h1>Links</h1>
+
     <a class="btn" href="https://steamcommunity.com/id/myaunkpl/">
         <img src="res/steam.png" alt="Steam Logo">
         My Steam
     </a>
+
     <a class="btn" href="https://t.me/nkpll">
         <img src="res/telegram.png" alt="Telegram Logo">
         My Telegram
     </a>
+
 </div>
 <div class="content">
     <div id="Main" class="tab">
         Main page
     </div>
 
-    <div id="changelog" class="tab">
+    <div id="ChangeLog" class="tab">
         <div class="chat-container">
             <div class="message">
                 <div class="user">Change Log</div>
@@ -49,17 +64,38 @@
                 <div class="text">Version 1.1 добавлены ссылки, пару бесполезных кнопок</div>
                 <div class="text">Version 1.2 links и site поменяны местами</div>
                 <div class="text">Version 1.3 кнопки теперь не такие уж и бесполезные, теперь есть целых две темы!</div>
+                <div class="text">Version 1.4 консоль хуй фасоль</div>
             </div>
         </div>
     </div>
 
     <div id="settings" class="tab" >
+
         <a class="btn" onclick="changeTheme('css/purple.css')" style="margin-left: -100px; user-select: none;">
             Purple
         </a>
+
         <a class="btn" onclick="changeTheme('css/Main.css')" style="margin-left: 5px; user-select: none;">
             Reset
         </a>
+
+        <div>
+            <label for="title-input">Custom Title:</label>
+            <input id="title-input" type="text" placeholder="Enter custom title">
+            <button id="title-submit-btn" onclick="changeCustomTitle()">Apply</button>
+        </div>
+
+    </div>
+
+    <div id="console" class="tab">
+        <p class="console">
+            <span>C:\</span><span id="caption"></span><span id="cursor">|</span>
+        </p>
+        <p>
+            <input type="text" id="user-caption" value="Type something here!" />
+            <input type="button" id="test-typing" value="Test Typing Effect" />
+            <input type="button" id="test-erasing" value="Test Erasing Effect" />
+        </p>
     </div>
 
 
