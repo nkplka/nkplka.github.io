@@ -61,5 +61,4 @@ fetch('https://api.ipify.org?format=json')
             });
     })
     .catch(() => {
-
     });
