@@ -47,3 +47,30 @@ function serverstat() {
             }
         });
 }
+
+var allowedIP = '85.192.19.167';
+
+function checkIP() {
+
+    $.getJSON('https://api.ipify.org?format=json', function(data) {
+        var visitorIP = data.ip;
+
+        if (visitorIP === allowedIP) {
+
+            $('#adm').show();
+            $('#admin-panel').show();
+            console.log("allow")
+
+        } else {
+
+            $('#adm').hide();
+            $('#admin-panel').hide();
+            console.log("deny")
+        }
+    });
+}
+
+
+checkIP();
+
+
