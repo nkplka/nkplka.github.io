@@ -32,3 +32,18 @@ window.onload = function() {
         openTab('Main');
     }
 }
+
+function serverstat() {
+    const addr = "https://api.mcsrvstat.us/2/mc.nkpl.ru";
+    fetch(addr)
+        .then(response => response.json())
+        .then(json => {
+            const minecraftDiv = document.getElementById("Minecraft");
+
+            if (json.online === false) {
+                minecraftDiv.innerHTML = "<p>Server: " + json.hostname + "</p><p>Offline</p>";
+            } else {
+                minecraftDiv.innerHTML = "<p>Server: " + json.hostname + "</p><p>online: " + json.players.online + "/" + json.players.max + "</p>";
+            }
+        });
+}

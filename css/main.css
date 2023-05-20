@@ -109,3 +109,15 @@ input[type="text"]:focus {
     border-radius: 5px;
 }
 
+#Minecraft {
+    background-color: #2a2b32;
+    padding: 10px;
+    border-radius: 5px;
+    color: #c9d1d9;
+    margin-bottom: 10px;
+    margin-left: -110px;
+}
+
+#Minecraft p {
+    margin: 5px 0;
+}
