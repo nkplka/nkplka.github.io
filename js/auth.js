@@ -5,21 +5,18 @@ function handleDiscordAuth() {
 
 
 function handleAuthorizationResponse() {
-    // Получаем URL-параметры из текущего URL
     var urlParams = new URLSearchParams(window.location.search);
 
-    // Проверяем, есть ли в URL-параметрах код авторизации
     if (urlParams.has('code')) {
-        // Отправляем запрос на обмен кода авторизации на токен доступа
         var authorizationCode = urlParams.get('code');
         var tokenExchangeUrl = 'https://discord.com/api/v10/oauth2/token';
 
         var params = new URLSearchParams();
-        params.append('client_id', '1105905851371368488');
-        params.append('client_secret', 'rtCzvS3cga_Vpnt5dfrDFlj5do0O-v-S');
+        params.append('client_id', 'ID_твоего_приложения');
+        params.append('client_secret', 'Секретный_ключ_твоего_приложения');
         params.append('grant_type', 'authorization_code');
         params.append('code', authorizationCode);
-        params.append('redirect_uri', 'https://nkpl.ru');
+        params.append('redirect_uri', 'URL-адрес_перенаправления_после_авторизации');
 
         fetch(tokenExchangeUrl, {
             method: 'POST',
@@ -27,10 +24,8 @@ function handleAuthorizationResponse() {
         })
             .then(response => response.json())
             .then(data => {
-                // Получаем токен доступа из ответа
                 var accessToken = data.access_token;
 
-                // Отправляем запрос для получения информации о пользователе
                 var userInfoUrl = 'https://discord.com/api/v10/users/@me';
 
                 fetch(userInfoUrl, {
@@ -40,11 +35,9 @@ function handleAuthorizationResponse() {
                 })
                     .then(response => response.json())
                     .then(userInfo => {
-                        // Извлекаем никнейм и тег пользователя
                         var username = userInfo.username;
                         var discriminator = userInfo.discriminator;
 
-                        // Выводим никнейм и тег в консоль
                         console.log('Никнейм пользователя: ' + username);
                         console.log('Тег пользователя: ' + discriminator);
                     })
@@ -58,5 +51,5 @@ function handleAuthorizationResponse() {
     }
 }
 
-
+// Вызываем функцию обработки ответа после авторизации
 handleAuthorizationResponse();
