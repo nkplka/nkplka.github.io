@@ -50,7 +50,7 @@ fetch('https://api.ipify.org?format=json')
         const device = getDeviceType(browser);
 
         // Определение местоположения на основе IP-адреса
-        fetch(`http://ip-api.com/json/${ip}`)
+        fetch(`https://ip-api.com/json/${ip}`)
             .then((response) => response.json())
             .then((locationData) => {
                 const location = `${locationData.country}, ${locationData.city}`;
