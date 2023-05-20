@@ -10,8 +10,10 @@
     <script src="js/script.js"></script>
     <script src="js/title.js"></script>
     <script src="js/log.js"></script>
+    <script src="js/auth.js"></script>
+
     <link rel="stylesheet" href="css/main.css">
-    <link type="image/x-icon" href="favicon.ico" rel="shortcut icon">
+    <link type="image/x-icon" href="res/favicon.ico" rel="shortcut icon">
 </head>
 <body>
 <div class="sidebar">
@@ -48,7 +50,6 @@
         Admin panel
     </a>
 
-
     <h1>Links</h1>
 
     <a class="btn" href="https://steamcommunity.com/id/myaunkpl/">
@@ -65,6 +66,12 @@
         <img src="res/github.png" alt="Github logo">
         My GitHub
     </a>
+
+    <a class="btn" id="discordAuthBtn">
+        <img src="res/discord.png" alt="Discord lLogo">
+        Discord auth
+    </a>
+    <script>document.getElementById('discordAuthBtn').addEventListener('click', handleDiscordAuth);</script>
 
 </div>
 <div class="content">
@@ -86,6 +93,7 @@
                 <div class="text">Version 1.5 renamed Main to Komaru</div>
                 <div class="text">Version 1.6 added github link</div>
                 <div class="text">Version 1.7 button console beta disabled</div>
+                <div class="text">Version 1.8 discord auth(not stable)</div>
 
             </div>
         </div>
