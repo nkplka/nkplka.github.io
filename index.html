@@ -65,15 +65,51 @@
     </a>
 
     <a class="btn" id="discordAuth">
-        <img src="res/discord.png" alt="Discord lLogo">
+        <img src="res/discord.png" alt="Discord Logo">
         Discord Auth
     </a>
+
     <script>
         document.getElementById('discordAuth').addEventListener('click', function() {
+            // Проверяем наличие ника и тега в куках
+            let username = getCookie('username');
+            let discriminator = getCookie('discriminator');
 
-        window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=1105905851371368488&redirect_uri=https://nkpl.ru/&response_type=token&scope=identify';
-    });
+            if (!username || !discriminator) {
+
+                window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=1105905851371368488&redirect_uri=https://nkpl.ru/&response_type=token&scope=identify';
+            } else {
+
+                showNotification(username, discriminator);
+            }
+        });
+
+        function showNotification(username, discriminator) {
+            var notification = document.createElement('div');
+            notification.textContent = 'Пользователь: ' + username + '#' + discriminator;
+            notification.style.width = '100px';
+            notification.style.height = '50px';
+            notification.style.backgroundColor = 'lightblue';
+            notification.style.position = 'fixed';
+            notification.style.top = '10px';
+            notification.style.left = '10px';
+            notification.style.padding = '10px';
+            notification.style.borderRadius = '5px';
+            document.body.appendChild(notification);
+        }
+
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.startsWith(name + '=')) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return '';
+        }
     </script>
+
 
 
 
