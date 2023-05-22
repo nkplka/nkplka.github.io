@@ -128,3 +128,12 @@ input[type="text"]:focus {
     cursor: not-allowed;
     opacity: 0.6;
 }
+.profile {
+    margin-top: 250px;
+}
+
+.profile h3,
+.profile p {
+    margin: 0;
+}
+
