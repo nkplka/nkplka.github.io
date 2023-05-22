@@ -3,7 +3,7 @@ window.addEventListener('load', function() {
     var discriminatorElement = document.getElementById('discriminator');
 
     var username = getCookie('username');
-    var discriminator = getCookie('#' + 'discriminator');
+    var discriminator = getCookie('discriminator');
 
     usernameElement.textContent = username || 'undefined';
     discriminatorElement.textContent = discriminator || '#undefined';
