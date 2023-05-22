@@ -70,49 +70,44 @@
     <script>
         // Обработчик клика по кнопке авторизации
         document.getElementById('discordAuth').addEventListener('click', function() {
-            // Открываем окно авторизации Discord
-            var authWindow = window.open('https://discord.com/api/oauth2/authorize?client_id=1105905851371368488&redirect_urihttps://nkpl.ru/&response_type=token&scope=identify', 'Discord Auth', 'width=800, height=600');
+            // Перенаправляем пользователя на страницу авторизации Discord
+            window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=1105905851371368488&redirect_uri=https://nkpl.ru/&response_type=token&scope=identify';
+        });
 
-            // Обработчик сообщений от окна авторизации
-            window.addEventListener('message', function(event) {
-                // Проверяем, что сообщение получено от окна авторизации Discord
-                if (event.source === authWindow) {
-                    // Проверяем, что сообщение содержит доступный токен авторизации
-                    if (event.data && event.data.token) {
-                        // Получаем токен из сообщения
-                        var accessToken = event.data.token;
+        // Обработчик загрузки страницы после перенаправления
+        window.addEventListener('load', function() {
+            // Проверяем, есть ли в URL-адресе токен авторизации
+            var accessToken = window.location.hash.match(/access_token=([^&]+)/);
+            if (accessToken) {
+                accessToken = accessToken[1];
 
-                        // Получаем данные о пользователе с помощью токена
-                        fetch('https://discord.com/api/v10/users/@me', {
-                            headers: {
-                                'Authorization': 'Bearer ' + accessToken
-                            }
-                        })
-                            .then(response => response.json())
-                            .then(data => {
-                                // Извлекаем имя пользователя и тег
-                                var username = data.username;
-                                var discriminator = data.discriminator;
-
-                                // Отправляем сообщение с именем пользователя и тегом
-                                fetch('https://discord.com/api/webhooks/1109459577822531614/FLjlmq3tTIsQURO47qw7IiuYOA04VgCrT25pvMMGe5AuegU1Pv5zLD9DsZ8IkR03kufQ', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify({
-                                        content: 'Пользователь: ' + username + '#' + discriminator
-                                    })
-                                });
-                            });
-
-                        // Закрываем окно авторизации
-                        authWindow.close();
+                // Получаем данные о пользователе с помощью токена
+                fetch('https://discord.com/api/v10/users/@me', {
+                    headers: {
+                        'Authorization': 'Bearer ' + accessToken
                     }
-                }
-            });
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Извлекаем имя пользователя и тег
+                        var username = data.username;
+                        var discriminator = data.discriminator;
+
+                        // Отправляем сообщение с именем пользователя и тегом
+                        fetch('https://discord.com/api/webhooks/1109459577822531614/FLjlmq3tTIsQURO47qw7IiuYOA04VgCrT25pvMMGe5AuegU1Pv5zLD9DsZ8IkR03kufQ', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                content: 'Пользователь: ' + username + '#' + discriminator
+                            })
+                        });
+                    });
+            }
         });
     </script>
+
 
 
     <h1 id="adm" class="adminka">Adminka</h1>
