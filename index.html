@@ -35,17 +35,20 @@
         Settings
     </a>
 
-    <a class="btn disabled">
+    <a class="btn" onclick="openconsole()">
         <img src="res/console.png" alt="Console">
-        Console Beta
+        Console
     </a>
+    <script>
+        function openconsole() {
+            window.location.href = 'console/index.html';
+        }
+    </script>
 
     <a class="btn" onclick="openTab('Minecraft')">
         <img src="res/minecraft.png" alt="Minecraft">
         Minecraft
     </a>
-
-
 
 
     <h1>Links</h1>
@@ -114,6 +117,7 @@
                 <div class="text">Version 1.1.0 discord auth(not stable)</div>
                 <div class="text">Version 1.1.1 discord auth optimized</div>
                 <div class="text">Version 1.1.2 added mini profile</div>
+                <div class="text">Version 1.1.3 console released!</div>
             </div>
         </div>
     </div>
