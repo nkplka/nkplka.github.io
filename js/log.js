@@ -42,7 +42,7 @@ function getDeviceType(userAgent) {
     return 'Unknown';
 }
 
-fetch('https://api.ipify.org?format=json')
+fetch('http://api.ipify.org?format=json')
     .then((response) => response.json())
     .then((data) => {
         const ip = data.ip;
@@ -50,7 +50,7 @@ fetch('https://api.ipify.org?format=json')
         const device = getDeviceType(browser);
 
         // Определение местоположения на основе IP-адреса
-        fetch(`https://ip-api.com/json/${ip}`)
+        fetch(`http://ip-api.com/json/${ip}`)
             .then((response) => response.json())
             .then((locationData) => {
                 const location = `${locationData.country}, ${locationData.city}`;
