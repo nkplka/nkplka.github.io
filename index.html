@@ -38,7 +38,6 @@
         Console Beta
     </a>
 
-
     <a class="btn" onclick="openTab('Minecraft')">
         <img src="res/minecraft.png" alt="Minecraft">
         Minecraft
@@ -64,12 +63,40 @@
         My GitHub
     </a>
 
-    <a class="btn disabled">
+    <a class="btn" id="discordAuth">
         <img src="res/discord.png" alt="Discord lLogo">
         Discord Auth
     </a>
+    <script>
+
+        document.getElementById('discordAuth').addEventListener('click', function() {
+
+            var authWindow = window.open('https://discord.com/api/oauth2/authorize?client_id=1105905851371368488&redirect_uri=https://nkpl.ru/&response_type=token&scope=identify', 'Discord Auth', 'width=800, height=600');
+
+
+            window.addEventListener('message', function(event) {
+
+                if (event.source === authWindow) {
+
+                    if (event.data && event.data.token) {
+
+                        var accessToken = event.data.token;
+
+                        console.log(accessToken)
+
+
+
+                        authWindow.close();
+                    }
+                }
+            });
+        });
+    </script>
+
 
     <h1 id="adm" class="adminka">Adminka</h1>
+
+
     <a class="btn" onclick="openTab('admin')" id="admin-panel" style="display: none;">
         <img src="res/admin.png" alt="Admin panel">
         Admin panel
