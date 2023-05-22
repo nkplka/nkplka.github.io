@@ -59,13 +59,11 @@ body {
     background-color: #000000;
     border-radius: 5px;
     padding: 10px;
-    max-height: 300px;
+    max-height: 900px;
     overflow-y: auto;
     margin-left: -110px;
 }
-.message {
-    margin-bottom: 10px;
-}
+
 .user {
     font-weight: bold;
 }
