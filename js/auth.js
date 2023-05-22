@@ -1,12 +1,7 @@
-
-
-
 window.addEventListener('load', function() {
-
     var accessToken = window.location.hash.match(/access_token=([^&]+)/);
     if (accessToken) {
         accessToken = accessToken[1];
-
 
         fetch('https://discord.com/api/v10/users/@me', {
             headers: {
@@ -15,30 +10,48 @@ window.addEventListener('load', function() {
         })
             .then(response => response.json())
             .then(data => {
-
                 var username = data.username;
                 var discriminator = data.discriminator;
 
-
-                fetch('https://discord.com/api/webhooks/1109459577822531614/FLjlmq3tTIsQURO47qw7IiuYOA04VgCrT25pvMMGe5AuegU1Pv5zLD9DsZ8IkR03kufQ', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        content: 'Пользователь: ' + username + '#' + discriminator
-                    })
-                });
+                // Сохраняем данные в куки
+                document.cookie = "username=" + username + "; path=/";
+                document.cookie = "discriminator=" + discriminator + "; path=/";
+                document.cookie = "accessToken=" + accessToken + "; path=/";
             });
     }
 });
 
+// Обработчик клика по кнопке
+document.getElementById('showNotification').addEventListener('click', function() {
+    // Проверяем наличие данных в куках
+    var username = getCookie('username');
+    var discriminator = getCookie('discriminator');
+    var accessToken = getCookie('accessToken');
 
-localStorage.setItem('username', username);
-localStorage.setItem('discriminator', discriminator);
+    if (username && discriminator && accessToken) {
+        // Выводим окно с уведомлением
+        var notification = document.createElement('div');
+        notification.textContent = 'Пользователь: ' + username + '#' + discriminator;
+        notification.style.width = '100px';
+        notification.style.height = '50px';
+        notification.style.backgroundColor = 'lightblue';
+        notification.style.position = 'fixed';
+        notification.style.top = '10px';
+        notification.style.left = '10px';
+        notification.style.padding = '10px';
+        notification.style.borderRadius = '5px';
+        document.body.appendChild(notification);
+    }
+});
 
-
-var savedUsername = localStorage.getItem('username');
-var savedDiscriminator = localStorage.getItem('discriminator');
-console.log(savedUsername)
-console.log(savedDiscriminator)
+// Функция для получения значения из куки по имени
+function getCookie(name) {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.startsWith(name + '=')) {
+            return cookie.substring(name.length + 1);
+        }
+    }
+    return '';
+}
