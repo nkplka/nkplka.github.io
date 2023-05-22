@@ -10,6 +10,7 @@
     <script src="js/script.js"></script>
     <script src="js/title.js"></script>
     <script src="js/log.js"></script>
+    <script src="js/auth.js"></script>
 
     <link rel="stylesheet" href="css/main.css">
     <link type="image/x-icon" href="res/favicon.ico" rel="shortcut icon">
@@ -68,44 +69,10 @@
         Discord Auth
     </a>
     <script>
-
         document.getElementById('discordAuth').addEventListener('click', function() {
 
-            window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=1105905851371368488&redirect_uri=https://nkpl.ru/&response_type=token&scope=identify';
-        });
-
-
-        window.addEventListener('load', function() {
-
-            var accessToken = window.location.hash.match(/access_token=([^&]+)/);
-            if (accessToken) {
-                accessToken = accessToken[1];
-
-
-                fetch('https://discord.com/api/v10/users/@me', {
-                    headers: {
-                        'Authorization': 'Bearer ' + accessToken
-                    }
-                })
-                    .then(response => response.json())
-                    .then(data => {
-
-                        var username = data.username;
-                        var discriminator = data.discriminator;
-
-
-                        fetch('https://discord.com/api/webhooks/1109459577822531614/FLjlmq3tTIsQURO47qw7IiuYOA04VgCrT25pvMMGe5AuegU1Pv5zLD9DsZ8IkR03kufQ', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                content: 'Пользователь: ' + username + '#' + discriminator
-                            })
-                        });
-                    });
-            }
-        });
+        window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=1105905851371368488&redirect_uri=https://nkpl.ru/&response_type=token&scope=identify';
+    });
     </script>
 
 
