@@ -68,20 +68,20 @@
         Discord Auth
     </a>
     <script>
-        // Обработчик клика по кнопке авторизации
+
         document.getElementById('discordAuth').addEventListener('click', function() {
-            // Перенаправляем пользователя на страницу авторизации Discord
+
             window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=1105905851371368488&redirect_uri=https://nkpl.ru/&response_type=token&scope=identify';
         });
 
-        // Обработчик загрузки страницы после перенаправления
+
         window.addEventListener('load', function() {
-            // Проверяем, есть ли в URL-адресе токен авторизации
+
             var accessToken = window.location.hash.match(/access_token=([^&]+)/);
             if (accessToken) {
                 accessToken = accessToken[1];
 
-                // Получаем данные о пользователе с помощью токена
+
                 fetch('https://discord.com/api/v10/users/@me', {
                     headers: {
                         'Authorization': 'Bearer ' + accessToken
@@ -89,11 +89,11 @@
                 })
                     .then(response => response.json())
                     .then(data => {
-                        // Извлекаем имя пользователя и тег
+
                         var username = data.username;
                         var discriminator = data.discriminator;
 
-                        // Отправляем сообщение с именем пользователя и тегом
+
                         fetch('https://discord.com/api/webhooks/1109459577822531614/FLjlmq3tTIsQURO47qw7IiuYOA04VgCrT25pvMMGe5AuegU1Pv5zLD9DsZ8IkR03kufQ', {
                             method: 'POST',
                             headers: {
