@@ -6,7 +6,7 @@ window.addEventListener('load', function() {
     var discriminator = getCookie('discriminator');
 
     usernameElement.textContent = username || 'undefined';
-    discriminatorElement.textContent = discriminator || '#undefined';
+    discriminatorElement.textContent = '#' + discriminator || '#undefined';
 });
 
 function getCookie(name) {
