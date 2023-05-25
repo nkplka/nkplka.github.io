@@ -78,7 +78,7 @@
             const username = getCookie("username");
             const discriminator = getCookie("discriminator");
             if (username && discriminator) {
-                console.log("Пользователь уже авторизован:", username + "#" + discriminator);
+                console.log(username + "#" + discriminator);
                 return true;
             }
             return false;
@@ -93,7 +93,6 @@
         }
 
         window.addEventListener('load', function() {
-            // Проверяем, авторизован ли уже пользователь
             if (isAuthenticated()) {
                 return;
             }
