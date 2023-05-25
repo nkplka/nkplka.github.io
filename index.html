@@ -17,7 +17,7 @@
     <link type="image/x-icon" href="res/favicon.ico" rel="shortcut icon">
 </head>
 <body>
-<div id="notification"></div>
+<div class="notification" id="notification"></div>
 <div class="sidebar">
 
     <h1>Site</h1>
@@ -90,12 +90,12 @@
             return false;
         }
 
-        function showNotification(message, duration) {
-            const notificationElement = document.getElementById("notification");
-            notificationElement.textContent = message;
-            notificationElement.style.display = "block";
-            setTimeout(function () {
-                notificationElement.style.display = "none";
+        function showNotification(message, type, duration) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = 'notification ' + type + ' show';
+            setTimeout(function() {
+                notification.classList.remove('show');
             }, duration);
         }
 
@@ -157,6 +157,7 @@
                 <div class="text">Version 1.1.1 discord auth optimized</div>
                 <div class="text">Version 1.1.2 added mini profile</div>
                 <div class="text">Version 1.1.3 console released!</div>
+                <div class="text">Version 1.1.4 added check discord authorization</div>
             </div>
         </div>
     </div>
