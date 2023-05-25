@@ -78,7 +78,6 @@
             const username = getCookie("username");
             const discriminator = getCookie("discriminator");
             if (username && discriminator) {
-                console.log("алреди аутхед" + username + "#" + discriminator);
                 return true;
             }
             return false;
@@ -94,12 +93,13 @@
 
         window.addEventListener('load', function() {
             if (isAuthenticated()) {
-                return;
+                console.log("алреди аутхед" + username + "#" + discriminator);
+                return true;
             }
 
-            document.getElementById('discordAuth').addEventListener('click', function() {
+            else {
                 window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=1105905851371368488&redirect_uri=https://nkpl.ru/&response_type=token&scope=identify';
-            });
+            }
         });
     </script>
 
