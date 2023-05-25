@@ -1,6 +1,3 @@
-
-
-
 window.addEventListener('load', function() {
 
     let accessToken = window.location.hash.match(/access_token=([^&]+)/);
