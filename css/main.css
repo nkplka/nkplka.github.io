@@ -102,13 +102,6 @@ input[type="text"]:focus {
     outline: none;
 }
 
-#console-beta {
-    background-color: #000000;
-    padding: 440px;
-    margin-left: -110px;
-    border-radius: 5px;
-}
-
 #Minecraft {
     background-color: #2a2b32;
     padding: 10px;
@@ -172,3 +165,4 @@ input[type="text"]:focus {
 .stats p {
     margin-left: 10px;
 }
+
