@@ -79,9 +79,19 @@
             const discriminator = getCookie("discriminator");
             if (username && discriminator) {
                 console.log("алреди аутхед " + username + "#" + discriminator);
+                showNotification("Authenticated", 2000);
                 return true;
             }
             return false;
+        }
+
+        function showNotification(message, duration) {
+            const notificationElement = document.getElementById("notification");
+            notificationElement.textContent = message;
+            notificationElement.style.display = "block";
+            setTimeout(function () {
+                notificationElement.style.display = "none";
+            }, duration);
         }
 
         function getCookie(name) {
