@@ -148,11 +148,12 @@ input[type="text"]:focus {
     opacity: 0;
     z-index: 9999;
     transition: opacity 0.3s ease-in-out;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
 }
 
 .notification.show {
     opacity: 1;
 }
+
+
+
 
