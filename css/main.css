@@ -154,6 +154,20 @@ input[type="text"]:focus {
     opacity: 1;
 }
 
+.stats {
+    width: 300px;
+    background-color: #202123;
+    margin-top: 20px;
+    margin-left: -110px;
+    border-radius: 5px;
+    overflow-y: auto;
+}
 
+.stats h1 {
+    font-size: 15px;
+    margin-left: 125px;
+}
 
-
+.stats p {
+    margin-left: 10px;
+}
