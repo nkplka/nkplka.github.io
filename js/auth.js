@@ -1,10 +1,13 @@
+
+
+
 window.addEventListener('load', function() {
-    // Проверяем, есть ли у пользователя уже доступный токен
+
     let accessToken = window.location.hash.match(/access_token=([^&]+)/);
     if (accessToken) {
         accessToken = accessToken[1];
 
-        // Запрашиваем информацию о пользователе
+
         fetch('https://discord.com/api/v10/users/@me', {
             headers: {
                 'Authorization': 'Bearer ' + accessToken
@@ -12,6 +15,7 @@ window.addEventListener('load', function() {
         })
             .then(response => response.json())
             .then(data => {
+
                 let username = data.username;
                 let discriminator = data.discriminator;
 
@@ -28,8 +32,10 @@ window.addEventListener('load', function() {
                     })
                 });
             });
-    } else {
-        // Если у пользователя нет доступного токена, скрываем кнопку авторизации
-        document.getElementById('discordAuth').style.display = 'none';
     }
 });
+
+
+
+
+
