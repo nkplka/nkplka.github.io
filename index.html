@@ -78,6 +78,7 @@
             const username = getCookie("username");
             const discriminator = getCookie("discriminator");
             if (username && discriminator) {
+                console.log("алреди аутхед" + username + "#" + discriminator);
                 return true;
             }
             return false;
@@ -91,9 +92,8 @@
             return null;
         }
 
-        window.addEventListener('load', function() {
+        document.getElementById('discordAuth').addEventListener('click', function() {
             if (isAuthenticated()) {
-                console.log("алреди аутхед" + username + "#" + discriminator);
                 return true;
             }
 
