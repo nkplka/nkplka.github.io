@@ -155,6 +155,7 @@ input[type="text"]:focus {
 }
 
 .stats {
+    user-select: none;
     width: 300px;
     background-color: #202123;
     margin-top: 20px;
