@@ -17,6 +17,7 @@
     <link type="image/x-icon" href="res/favicon.ico" rel="shortcut icon">
 </head>
 <body>
+<div id="notification"></div>
 <div class="sidebar">
 
     <h1>Site</h1>
@@ -73,7 +74,7 @@
         Discord Auth
     </a>
 
-    <div id="notification"></div>
+
 
 
     <script>
@@ -83,7 +84,7 @@
             const discriminator = getCookie("discriminator");
             if (username && discriminator) {
                 console.log("алреди аутхед " + username + "#" + discriminator);
-                showNotification("Authenticated", 2000);
+                showNotification("Authenticated", 3000);
                 return true;
             }
             return false;
