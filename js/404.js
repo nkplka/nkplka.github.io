@@ -35,10 +35,4 @@ function changePageTitle() {
     }
 }
 
-function changeCustomTitle() {
-    var customTitleInput = document.getElementById("title-input");
-    customTitle = customTitleInput.value;
-    isCustomTitleSet = !!customTitle;
-}
-
 setInterval(changePageTitle, 75);
