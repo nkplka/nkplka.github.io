@@ -84,7 +84,7 @@
             const discriminator = getCookie("discriminator");
             if (username && discriminator) {
                 console.log("алреди аутхед " + username + "#" + discriminator);
-                showNotification("Authenticated", 3000);
+                showNotification("Authenticated", 'success', 2000);
                 return true;
             }
             return false;
