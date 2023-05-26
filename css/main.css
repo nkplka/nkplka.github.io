@@ -131,7 +131,7 @@ input[type="text"]:focus {
 .notification {
     position: fixed;
     top: 20px;
-    right: -100%;
+    right: 20px;
     background-color: #202123;
     color: #ffffff;
     padding: 10px 20px;
@@ -139,7 +139,7 @@ input[type="text"]:focus {
     font-size: 14px;
     opacity: 0;
     z-index: 9999;
-    transition: transform 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
     transform: translateX(100%);
 }
 
@@ -147,8 +147,6 @@ input[type="text"]:focus {
     opacity: 1;
     transform: translateX(0);
 }
-
-
 
 
 .stats {

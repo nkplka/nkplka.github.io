@@ -73,6 +73,4 @@ const css = "text-shadow: -1px -1px hsl(0,100%,50%), 1px 1px hsl(5.4, 100%, 50%)
 console.log("%c %s", css, 'дарова заебал');
 checkIP();
 
-const notification = document.getElementById('notification');
-notification.classList.add('show');
 
