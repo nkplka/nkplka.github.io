@@ -98,8 +98,8 @@
             }, duration);
         }
 
+        showNotification('111', 'success', 1000)
 
-        showNotification('Привет, мир!', 'success', 3000);
 
         function getCookie(name) {
             const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
@@ -207,7 +207,8 @@
 
 
 
-    <div id="admin" class="tab" style="display: none;">
+    <div id="admin" class="tab" style="display: none; user-select: none">
+        <a class="btn" onclick="showNotification('111', 'success', 3000)" style="margin-left: -110px">notify</a>
 
     </div>
 
