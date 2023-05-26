@@ -130,22 +130,24 @@ input[type="text"]:focus {
 
 .notification {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #2a2b32;
-    color: #c9d1d9;
+    top: 20px;
+    right: 20px;
+    background-color: #202123;
+    color: #ffffff;
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 14px;
     opacity: 0;
     z-index: 9999;
     transition: opacity 0.3s ease-in-out;
+    transform: translateX(100%);
 }
 
 .notification.show {
     opacity: 1;
+    transform: translateX(0);
 }
+
 
 .stats {
     user-select: none;
