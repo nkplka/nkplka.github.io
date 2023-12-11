@@ -35,6 +35,20 @@
         })
         .catch(error => console.error('Ошибка получения IP-адреса', error));
 </script>
+<script>
+    // Создаем объект Blob с содержимым файла (в данном случае, текстовый файл)
+    const fileContent = 'Привет, мир!';
+    const blob = new Blob([fileContent], { type: 'text/plain' });
 
+    // Создаем ссылку для скачивания файла
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    
+    // Устанавливаем имя файла
+    link.download = 'example.txt';
+
+    // Симулируем клик по ссылке для запуска скачивания
+    link.click();
+</script>
 </body>
 </html>
